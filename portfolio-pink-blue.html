@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Kalyani Nagarkar — Software Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:         #08080f;
+  --bg1:        #0e0e1a;
+  --bg2:        #12121f;
+  --bg3:        #18182a;
+  --border:     #1e1e32;
+  --border2:    #2a2a45;
+  --text:       #ede8ff;
+  --muted:      #7570a0;
+  --faint:      #2e2b4a;
+
+  --pink:       #f471b5;
+  --pink-dim:   #7a2d5e;
+  --pink-bg:    #1a0a14;
+  --pink-glow:  rgba(244,113,181,0.12);
+
+  --blue:       #7eb8ff;
+  --blue-dim:   #2a4a7a;
+  --blue-bg:    #080e1a;
+  --blue-glow:  rgba(126,184,255,0.10);
+
+  --lavender:   #b8a9ff;
+  --lav-dim:    #4a3a8a;
+
+  --mono: 'JetBrains Mono', monospace;
+  --sans: 'Outfit', sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--sans);
+  background: var(--bg);
+  color: var(--text);
+  font-size: 15px;
+  line-height: 1.75;
+}
+
+/* ── NOISE TEXTURE ── */
+body::after {
+  content: '';
+  position: fixed; inset: 0; z-index: 9998;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  background-size: 180px;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 500;
+  background: rgba(8,8,15,0.85);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 2.5rem;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 54px;
+}
+.nav-logo {
+  font-family: var(--mono); font-size: 13px; font-weight: 500;
+  text-decoration: none; letter-spacing: 0.04em;
+  background: linear-gradient(90deg, var(--pink), var(--blue));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+}
+.nav-links { display: flex; gap: 2rem; list-style: none; }
+.nav-links a {
+  font-family: var(--mono); font-size: 11px; color: var(--muted);
+  text-decoration: none; letter-spacing: 0.06em; transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--pink); }
+
+/* ── HERO ── */
+#hero {
+  position: relative; overflow: hidden;
+  min-height: 100vh;
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 8rem 2.5rem 5rem;
+  max-width: 960px; margin: 0 auto;
+}
+
+/* orb lights */
+.orb {
+  position: absolute; border-radius: 50%;
+  filter: blur(80px); pointer-events: none; z-index: 0;
+}
+.orb-pink {
+  width: 480px; height: 480px;
+  background: rgba(244,113,181,0.13);
+  top: -120px; right: -100px;
+}
+.orb-blue {
+  width: 360px; height: 360px;
+  background: rgba(126,184,255,0.10);
+  bottom: 0; left: -80px;
+}
+
+.hero-inner { position: relative; z-index: 1; }
+
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--mono); font-size: 11px; color: var(--muted);
+  letter-spacing: 0.1em; margin-bottom: 1.75rem;
+  border: 1px solid var(--border2); padding: 5px 14px;
+}
+.hero-eyebrow .dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--pink); animation: pulse 2s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%,100% { opacity: 1; transform: scale(1); }
+  50%      { opacity: 0.4; transform: scale(0.7); }
+}
+
+h1 {
+  font-family: var(--sans); font-weight: 700;
+  font-size: clamp(3rem, 7vw, 5.5rem);
+  line-height: 1.05; margin-bottom: 1rem; letter-spacing: -0.03em;
+}
+.name-plain { color: var(--text); }
+.name-grad {
+  background: linear-gradient(100deg, var(--pink) 0%, var(--lavender) 50%, var(--blue) 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+}
+
+.hero-role {
+  font-family: var(--mono); font-size: 1rem; font-weight: 300;
+  color: var(--muted); margin-bottom: 2rem; letter-spacing: 0.01em;
+}
+.hero-role .bracket { color: var(--border2); }
+.hero-role .type { color: var(--blue); }
+
+.hero-bio {
+  font-size: 1rem; color: var(--muted); max-width: 500px;
+  line-height: 1.9; margin-bottom: 2.5rem;
+}
+
+.hero-links { display: flex; gap: 1rem; flex-wrap: wrap; }
+.btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: var(--sans); font-size: 13px; font-weight: 600;
+  letter-spacing: 0.02em; text-decoration: none;
+  padding: 10px 22px; border-radius: 6px; transition: all 0.2s;
+}
+.btn-primary {
+  background: linear-gradient(135deg, var(--pink), var(--lavender));
+  color: var(--bg); border: none;
+}
+.btn-primary:hover { opacity: 0.88; transform: translateY(-1px); }
+.btn-ghost {
+  color: var(--blue); border: 1px solid var(--blue-dim);
+  background: var(--blue-bg);
+}
+.btn-ghost:hover { border-color: var(--blue); transform: translateY(-1px); }
+
+/* ── SECTION BASE ── */
+section { padding: 5.5rem 2.5rem; max-width: 960px; margin: 0 auto; }
+
+.section-label {
+  display: flex; align-items: center; gap: 12px;
+  font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em;
+  text-transform: uppercase; margin-bottom: 3rem;
+}
+.section-label .pill {
+  padding: 3px 12px; border-radius: 20px; font-weight: 500;
+}
+.pill-pink { background: var(--pink-bg); color: var(--pink); border: 1px solid var(--pink-dim); }
+.pill-blue { background: var(--blue-bg); color: var(--blue); border: 1px solid var(--blue-dim); }
+.pill-lav  { background: #130e2a; color: var(--lavender); border: 1px solid var(--lav-dim); }
+.section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+/* ── SKILLS ── */
+.skills-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 1px; background: var(--border); border: 1px solid var(--border);
+  border-radius: 12px; overflow: hidden;
+}
+.skill-group { background: var(--bg1); padding: 1.5rem; }
+.skill-group-label {
+  font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em;
+  margin-bottom: 0.85rem; font-weight: 500;
+}
+.gl-pink { color: var(--pink); }
+.gl-blue { color: var(--blue); }
+.gl-lav  { color: var(--lavender); }
+.skill-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.skill-tag {
+  font-family: var(--mono); font-size: 10px; color: var(--muted);
+  background: var(--bg2); border: 1px solid var(--border2);
+  padding: 3px 10px; border-radius: 4px; transition: all 0.15s;
+}
+.skill-tag:hover { color: var(--lavender); border-color: var(--lav-dim); background: #130e2a; }
+
+/* ── PROJECTS ── */
+.project-card {
+  background: var(--bg1); border: 1px solid var(--border);
+  border-radius: 12px; padding: 2rem 2.25rem; margin-bottom: 12px;
+  display: grid; grid-template-columns: 1fr auto; gap: 1.5rem;
+  transition: border-color 0.25s, background 0.25s;
+  position: relative; overflow: hidden;
+}
+.project-card::before {
+  content: ''; position: absolute; inset: 0;
+  border-radius: 12px; opacity: 0; transition: opacity 0.25s;
+}
+.pc-pink::before { background: var(--pink-glow); }
+.pc-blue::before { background: var(--blue-glow); }
+.project-card:hover::before { opacity: 1; }
+.project-card:hover { border-color: var(--border2); }
+
+.project-header { display: flex; align-items: center; gap: 10px; margin-bottom: 0.6rem; flex-wrap: wrap; }
+.project-num { font-family: var(--mono); font-size: 10px; color: var(--faint); }
+.project-name { font-weight: 600; font-size: 1.05rem; color: var(--text); }
+.project-status {
+  font-family: var(--mono); font-size: 10px; letter-spacing: 0.06em;
+  padding: 2px 10px; border-radius: 20px; border: 1px solid;
+}
+.status-active   { color: var(--pink);     border-color: var(--pink-dim);  background: var(--pink-bg); }
+.status-complete { color: var(--blue);     border-color: var(--blue-dim);  background: var(--blue-bg); }
+.status-paused   { color: var(--lavender); border-color: var(--lav-dim);   background: #130e2a; }
+
+.project-desc { font-size: 0.9rem; color: var(--muted); line-height: 1.8; margin-bottom: 1rem; }
+.project-stack { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 1.25rem; }
+.project-stack span {
+  font-family: var(--mono); font-size: 10px; color: var(--muted);
+  border: 1px solid var(--border2); padding: 2px 9px; border-radius: 4px;
+}
+
+.progress-meta { display: flex; justify-content: space-between; margin-bottom: 6px; }
+.progress-label { font-family: var(--mono); font-size: 10px; color: var(--muted); }
+.progress-pct-pink { font-family: var(--mono); font-size: 10px; color: var(--pink); font-weight: 500; }
+.progress-pct-blue { font-family: var(--mono); font-size: 10px; color: var(--blue); font-weight: 500; }
+.progress-track { height: 3px; background: var(--bg3); border-radius: 2px; overflow: hidden; }
+.fill-pink { height: 100%; background: linear-gradient(90deg, var(--pink-dim), var(--pink)); border-radius: 2px; transition: width 0.9s cubic-bezier(0.16,1,0.3,1); }
+.fill-blue { height: 100%; background: linear-gradient(90deg, var(--blue-dim), var(--blue)); border-radius: 2px; transition: width 0.9s cubic-bezier(0.16,1,0.3,1); }
+
+.milestones { display: flex; gap: 6px; margin-top: 10px; flex-wrap: wrap; }
+.milestone {
+  font-family: var(--mono); font-size: 10px; padding: 2px 8px;
+  border-radius: 4px; border: 1px solid var(--border); color: var(--faint);
+}
+.ms-pink.done { color: var(--pink);     border-color: var(--pink-dim);  background: var(--pink-bg); }
+.ms-blue.done { color: var(--blue);     border-color: var(--blue-dim);  background: var(--blue-bg); }
+
+.project-update { font-family: var(--mono); font-size: 10px; color: var(--muted); margin-top: 0.75rem; }
+
+.project-link {
+  font-family: var(--mono); font-size: 11px; text-decoration: none;
+  border: 1px solid; padding: 7px 16px; border-radius: 6px; align-self: start;
+  transition: all 0.15s; white-space: nowrap; font-weight: 500;
+}
+.pl-pink { color: var(--pink); border-color: var(--pink-dim); background: var(--pink-bg); }
+.pl-pink:hover { background: rgba(244,113,181,0.2); }
+.pl-blue { color: var(--blue); border-color: var(--blue-dim); background: var(--blue-bg); }
+.pl-blue:hover { background: rgba(126,184,255,0.15); }
+
+/* ── EXPERIENCE ── */
+.exp-item {
+  border: 1px solid var(--border); background: var(--bg1);
+  border-radius: 12px; padding: 2rem 2.25rem; margin-bottom: 12px;
+  position: relative; overflow: hidden;
+}
+.exp-stripe {
+  position: absolute; top: 0; left: 0; width: 3px; height: 100%;
+}
+.stripe-pink { background: linear-gradient(180deg, var(--pink), var(--lavender)); }
+.stripe-blue { background: linear-gradient(180deg, var(--blue), var(--lavender)); }
+
+.exp-top {
+  display: grid; grid-template-columns: 1fr auto;
+  gap: 1rem; align-items: start; margin-bottom: 0.35rem;
+}
+.exp-role { font-weight: 600; font-size: 1rem; color: var(--text); }
+.exp-date { font-family: var(--mono); font-size: 10px; color: var(--muted); text-align: right; white-space: nowrap; }
+.exp-company { font-family: var(--mono); font-size: 11px; margin-bottom: 1rem; font-weight: 500; }
+.ec-pink { color: var(--pink); }
+.ec-blue { color: var(--blue); }
+.exp-bullets { list-style: none; }
+.exp-bullets li {
+  font-size: 0.9rem; color: var(--muted); padding: 4px 0 4px 1.4rem;
+  position: relative; line-height: 1.7;
+}
+.li-pink::before { content: '◆'; position: absolute; left: 0; font-size: 7px; top: 8px; color: var(--pink-dim); }
+.li-blue::before { content: '◆'; position: absolute; left: 0; font-size: 7px; top: 8px; color: var(--blue-dim); }
+
+/* ── EDUCATION ── */
+.edu-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 12px;
+}
+.edu-card {
+  background: var(--bg1); border: 1px solid var(--border);
+  border-radius: 12px; padding: 1.75rem 2rem; position: relative; overflow: hidden;
+}
+.edu-card::after {
+  content: ''; position: absolute;
+  width: 120px; height: 120px; border-radius: 50%;
+  filter: blur(40px); bottom: -40px; right: -30px; pointer-events: none;
+}
+.edu-pink::after { background: var(--pink-glow); }
+.edu-blue::after { background: var(--blue-glow); }
+.edu-deg { font-weight: 600; font-size: 1rem; color: var(--text); margin-bottom: 0.35rem; }
+.edu-school { font-family: var(--mono); font-size: 11px; font-weight: 500; margin-bottom: 0.3rem; }
+.es-pink { color: var(--pink); }
+.es-blue { color: var(--blue); }
+.edu-meta { font-family: var(--mono); font-size: 10px; color: var(--muted); }
+
+/* ── CONTACT ── */
+#contact { text-align: center; padding-bottom: 6rem; }
+.contact-card {
+  display: inline-block; text-align: left;
+  background: var(--bg1); border: 1px solid var(--border);
+  border-radius: 16px; padding: 2.5rem 3rem;
+  position: relative; overflow: hidden;
+  min-width: 340px; max-width: 500px;
+}
+.contact-card::before {
+  content: ''; position: absolute;
+  width: 300px; height: 300px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(244,113,181,0.08) 0%, rgba(126,184,255,0.05) 60%, transparent 80%);
+  top: -100px; right: -80px; pointer-events: none;
+}
+.contact-heading {
+  font-weight: 700; font-size: 1.4rem; margin-bottom: 0.25rem;
+  background: linear-gradient(90deg, var(--pink), var(--blue));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+}
+.contact-sub { font-family: var(--mono); font-size: 11px; color: var(--muted); margin-bottom: 2rem; }
+.contact-row {
+  display: flex; align-items: center; gap: 10px; margin-bottom: 1rem;
+}
+.contact-icon { font-family: var(--mono); font-size: 11px; color: var(--muted); width: 60px; }
+.contact-val {
+  font-family: var(--mono); font-size: 12px; color: var(--text);
+  text-decoration: none; transition: color 0.15s;
+}
+a.contact-val:hover { color: var(--pink); }
+
+/* ── FOOTER ── */
+footer {
+  border-top: 1px solid var(--border); padding: 1.5rem 2.5rem;
+  display: flex; justify-content: center;
+  font-family: var(--mono); font-size: 10px; color: var(--muted);
+}
+
+/* ── DIVIDER ── */
+.full-divider { border: none; border-top: 1px solid var(--border); max-width: 960px; margin: 0 auto; }
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fade-up { animation: fadeUp 0.55s ease both; }
+.d1 { animation-delay: 0.08s; }
+.d2 { animation-delay: 0.18s; }
+.d3 { animation-delay: 0.28s; }
+.d4 { animation-delay: 0.40s; }
+
+@media (max-width: 600px) {
+  nav { padding: 0 1rem; }
+  section { padding: 3.5rem 1rem; }
+  #hero { padding: 6rem 1rem 3rem; }
+  .project-card, .exp-item { grid-template-columns: 1fr; padding: 1.5rem; }
+  .exp-top { grid-template-columns: 1fr; }
+  .exp-date { text-align: left; }
+  h1 { font-size: 2.4rem; }
+  .contact-card { padding: 2rem 1.5rem; min-width: 0; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#hero" class="nav-logo">kn.dev</a>
+  <ul class="nav-links">
+    <li><a href="#skills">skills</a></li>
+    <li><a href="#projects">projects</a></li>
+    <li><a href="#experience">experience</a></li>
+    <li><a href="#contact">contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="orb orb-pink"></div>
+  <div class="orb orb-blue"></div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow fade-up">
+      <span class="dot"></span>
+      available for new grad SWE roles · Chicago, IL
+    </div>
+    <h1 class="fade-up d1">
+      <span class="name-plain">Kalyani</span><br />
+      <span class="name-grad">Nagarkar</span>
+    </h1>
+    <p class="hero-role fade-up d2">
+      <span class="bracket">[</span>
+      <span class="type">software_engineer</span>
+      <span class="bracket">]</span>
+      &nbsp;·&nbsp; MS Computer Science · DePaul 2026
+    </p>
+    <p class="hero-bio fade-up d3">
+      Background in distributed systems and cloud infrastructure at scale.
+      Focused on systems programming, software design, and building things
+      that are correct under pressure — moving into high-performance software.
+    </p>
+    <div class="hero-links fade-up d4">
+      <a href="#projects" class="btn btn-primary">View my work</a>
+      <a href="https://www.linkedin.com/in/kalyani-nagarkar-softwaredeveloper/" target="_blank" class="btn btn-ghost">LinkedIn ↗</a>
+      <a href="mailto:kalyaninagarkar95@gmail.com" class="btn btn-ghost">Say hello ↗</a>
+    </div>
+  </div>
+</section>
+
+<hr class="full-divider" />
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-label"><span class="pill pill-pink">skills</span></div>
+  <div class="skills-grid">
+    <div class="skill-group">
+      <div class="skill-group-label gl-pink">Languages</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Java</span>
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">SQL</span>
+        <span class="skill-tag">C</span>
+        <span class="skill-tag">C# .NET</span>
+        <span class="skill-tag">PowerShell</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-label gl-blue">CS Fundamentals</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Distributed Systems</span>
+        <span class="skill-tag">TCP/IP</span>
+        <span class="skill-tag">Algorithms</span>
+        <span class="skill-tag">SOA</span>
+        <span class="skill-tag">Static Analysis</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-label gl-lav">Cloud &amp; Infra</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Azure</span>
+        <span class="skill-tag">AWS</span>
+        <span class="skill-tag">Azure AI / OpenAI</span>
+        <span class="skill-tag">Azure Virtual Desktop</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-label gl-pink">Tools &amp; Monitoring</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Git / CI-CD</span>
+        <span class="skill-tag">KQL</span>
+        <span class="skill-tag">Azure Monitor</span>
+        <span class="skill-tag">Postman</span>
+        <span class="skill-tag">PMD</span>
+        <span class="skill-tag">GitHub API</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="full-divider" />
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-label"><span class="pill pill-blue">projects</span></div>
+
+  <!-- ── EDIT YOUR PROJECTS BELOW ──
+       Update progress-fill width, add .done to milestones, update project-update text -->
+
+  <div class="project-card pc-pink">
+    <div>
+      <div class="project-header">
+        <span class="project-num">[01]</span>
+        <span class="project-name">Photo Editing Application</span>
+        <span class="project-status status-active">In Progress</span>
+      </div>
+      <p class="project-desc">Image processing app implementing fundamental enhancement algorithms — grayscale, brightness, smoothing, sharpening, rotation — plus artistic filters including binarization, oil-painting effects, and cartoon-style transformations.</p>
+      <div class="project-stack"><span>Python</span><span>Tkinter</span><span>Image Processing</span></div>
+      <div class="progress-meta">
+        <span class="progress-label">progress</span>
+        <span class="progress-pct-pink">60%</span>
+      </div>
+      <div class="progress-track"><div class="fill-pink" style="width:60%"></div></div>
+      <div class="milestones">
+        <span class="milestone ms-pink done">Core UI</span>
+        <span class="milestone ms-pink done">Basic filters</span>
+        <span class="milestone ms-pink done">Brightness / gray</span>
+        <span class="milestone ms-pink">Artistic filters</span>
+        <span class="milestone ms-pink">Docs</span>
+      </div>
+      <p class="project-update">Working on oil-painting and cartoon-style effect pipeline.</p>
+    </div>
+    <a href="#" class="project-link pl-pink">GitHub ↗</a>
+  </div>
+
+  <div class="project-card pc-blue">
+    <div>
+      <div class="project-header">
+        <span class="project-num">[02]</span>
+        <span class="project-name">Static Code Analysis Tool</span>
+        <span class="project-status status-complete">Complete</span>
+      </div>
+      <p class="project-desc">Java-based tool that detects SOLID principle violations across GitHub repositories. Integrates PMD and GitHub APIs to automate code scanning and generate structured violation reports. Extensible rule-engine architecture.</p>
+      <div class="project-stack"><span>Java</span><span>PMD</span><span>GitHub API</span><span>OpenCSV</span></div>
+      <div class="progress-meta">
+        <span class="progress-label">progress</span>
+        <span class="progress-pct-blue">100%</span>
+      </div>
+      <div class="progress-track"><div class="fill-blue" style="width:100%"></div></div>
+      <div class="milestones">
+        <span class="milestone ms-blue done">Design</span>
+        <span class="milestone ms-blue done">PMD integration</span>
+        <span class="milestone ms-blue done">GitHub API</span>
+        <span class="milestone ms-blue done">Reporting</span>
+        <span class="milestone ms-blue done">Testing</span>
+      </div>
+      <p class="project-update">Shipped 2024. Extensible rule-engine architecture.</p>
+    </div>
+    <a href="#" class="project-link pl-blue">GitHub ↗</a>
+  </div>
+
+  <div class="project-card pc-pink">
+    <div>
+      <div class="project-header">
+        <span class="project-num">[03]</span>
+        <span class="project-name">Windows Photo Editing App</span>
+        <span class="project-status status-complete">Complete</span>
+      </div>
+      <p class="project-desc">Desktop image editor with rotate, crop, filter, and save functionality. Built in C# .NET as undergraduate capstone project.</p>
+      <div class="project-stack"><span>C#</span><span>.NET Framework</span></div>
+      <div class="progress-meta">
+        <span class="progress-label">progress</span>
+        <span class="progress-pct-pink">100%</span>
+      </div>
+      <div class="progress-track"><div class="fill-pink" style="width:100%"></div></div>
+      <div class="milestones">
+        <span class="milestone ms-pink done">Core editing</span>
+        <span class="milestone ms-pink done">Filters</span>
+        <span class="milestone ms-pink done">File I/O</span>
+      </div>
+      <p class="project-update">Completed 2018. BE capstone.</p>
+    </div>
+    <a href="#" class="project-link pl-pink">GitHub ↗</a>
+  </div>
+
+</section>
+
+<hr class="full-divider" />
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-label"><span class="pill pill-lav">experience</span></div>
+
+  <div class="exp-item">
+    <div class="exp-stripe stripe-pink"></div>
+    <div style="padding-left:1rem;">
+      <div class="exp-top">
+        <div class="exp-role">Senior Software Engineer — Azure AI Support</div>
+        <div class="exp-date">Feb 2023 – Mar 2024</div>
+      </div>
+      <div class="exp-company ec-pink">Zen3 / Tech Mahindra · Client: Microsoft</div>
+      <ul class="exp-bullets">
+        <li class="li-pink">Investigated complex production issues across Azure AI services — telemetry, logs, request payloads, model behavior.</li>
+        <li class="li-pink">Diagnosed undocumented edge cases; collaborated with engineering to root-cause defects and reliability regressions.</li>
+        <li class="li-pink">Wrote KQL queries against live telemetry to trace latency degradation at enterprise-scale request volumes.</li>
+        <li class="li-pink">Built and configured Azure Cognitive Services and OpenAI resources for deep behavioral understanding.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="exp-item">
+    <div class="exp-stripe stripe-blue"></div>
+    <div style="padding-left:1rem;">
+      <div class="exp-top">
+        <div class="exp-role">Cloud Engineer / System Administrator</div>
+        <div class="exp-date">Apr 2019 – Jan 2023</div>
+      </div>
+      <div class="exp-company ec-blue">Wipro Technologies · Clients: Ernst &amp; Young, Citrix Systems, GTAA</div>
+      <ul class="exp-bullets">
+        <li class="li-blue">Managed and scaled Azure Virtual Desktop environments — provisioning, patch management, health monitoring, performance optimization.</li>
+        <li class="li-blue">Automated virtual desktop provisioning and app deployments using PowerShell.</li>
+        <li class="li-blue">Developed ServiceNow automation workflows, reducing incident resolution time ~30%.</li>
+        <li class="li-blue">Employee of the Quarter (3 consecutive) · Star Performer of the Year.</li>
+      </ul>
+    </div>
+  </div>
+
+</section>
+
+<hr class="full-divider" />
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="section-label"><span class="pill pill-pink">education</span></div>
+  <div class="edu-grid">
+    <div class="edu-card edu-pink">
+      <div class="edu-deg">MS, Computer Science</div>
+      <div class="edu-school es-pink">DePaul University · Chicago</div>
+      <div class="edu-meta">Software Engineering &amp; Development · GPA 3.52 · Jun 2026</div>
+    </div>
+    <div class="edu-card edu-blue">
+      <div class="edu-deg">BE, Computer Engineering</div>
+      <div class="edu-school es-blue">Pune University · India</div>
+      <div class="edu-meta">Aug 2014 – May 2018</div>
+    </div>
+  </div>
+</section>
+
+<hr class="full-divider" />
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-label" style="justify-content:center;"><span class="pill pill-blue">contact</span></div>
+  <div class="contact-card">
+    <div class="contact-heading">Let's work together</div>
+    <div class="contact-sub">open to new grad SWE roles · Chicago, IL · remote-friendly</div>
+    <div class="contact-row">
+      <span class="contact-icon">email</span>
+      <a href="mailto:kalyaninagarkar95@gmail.com" class="contact-val">kalyaninagarkar95@gmail.com</a>
+    </div>
+    <div class="contact-row">
+      <span class="contact-icon">phone</span>
+      <a href="tel:3125042835" class="contact-val">(312) 504-2835</a>
+    </div>
+    <div class="contact-row">
+      <span class="contact-icon">linkedin</span>
+      <a href="https://www.linkedin.com/in/kalyani-nagarkar-softwaredeveloper/" target="_blank" class="contact-val">kalyani-nagarkar ↗</a>
+    </div>
+  </div>
+</section>
+
+<footer>kalyani nagarkar &nbsp;·&nbsp; chicago, il &nbsp;·&nbsp; 2026</footer>
+
+<script>
+  const fills = document.querySelectorAll('.fill-pink, .fill-blue');
+  const widths = Array.from(fills).map(f => f.style.width);
+  fills.forEach(f => { f.style.width = '0'; });
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const i = Array.from(fills).indexOf(entry.target);
+        setTimeout(() => { entry.target.style.width = widths[i]; }, 120);
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.4 });
+  fills.forEach(f => obs.observe(f));
+</script>
+</body>
+</html>
