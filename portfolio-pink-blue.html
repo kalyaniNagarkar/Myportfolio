@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Kalyani Nagarkar — Software Engineer</title>
+<title>Kalyani Anand Nagarkar — Software Engineer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -383,7 +383,7 @@ footer {
 <body>
 
 <nav>
-  <a href="#hero" class="nav-logo">kn.dev</a>
+  <a href="#hero" class="nav-logo">kan.dev</a>
   <ul class="nav-links">
     <li><a href="#skills">skills</a></li>
     <li><a href="#projects">projects</a></li>
@@ -399,10 +399,10 @@ footer {
   <div class="hero-inner">
     <div class="hero-eyebrow fade-up">
       <span class="dot"></span>
-      available for new grad SWE roles · Chicago, IL
+      open to SWE roles · open to relocation · STEM OPT authorized
     </div>
     <h1 class="fade-up d1">
-      <span class="name-plain">Kalyani</span><br />
+      <span class="name-plain">Kalyani Anand</span><br />
       <span class="name-grad">Nagarkar</span>
     </h1>
     <p class="hero-role fade-up d2">
@@ -412,9 +412,7 @@ footer {
       &nbsp;·&nbsp; MS Computer Science · DePaul 2026
     </p>
     <p class="hero-bio fade-up d3">
-      Background in distributed systems and cloud infrastructure at scale.
-      Focused on systems programming, software design, and building things
-      that are correct under pressure — moving into high-performance software.
+      5 years diagnosing production failures across Azure AI Services at Microsoft taught me how real systems break — and why they shouldn't. Now I build: Spring Boot applications, image processing pipelines, Java static analysis tools. MS Computer Science, DePaul 2026. Looking for a SWE role where I can own code end to end.
     </p>
     <div class="hero-links fade-up d4">
       <a href="#projects" class="btn btn-primary">View my work</a>
@@ -436,39 +434,45 @@ footer {
         <span class="skill-tag">Java</span>
         <span class="skill-tag">Python</span>
         <span class="skill-tag">SQL</span>
-        <span class="skill-tag">C</span>
-        <span class="skill-tag">C# .NET</span>
+        <span class="skill-tag">C#</span>
+        <span class="skill-tag">TypeScript</span>
+        <span class="skill-tag">JavaScript</span>
         <span class="skill-tag">PowerShell</span>
       </div>
     </div>
     <div class="skill-group">
-      <div class="skill-group-label gl-blue">CS Fundamentals</div>
+      <div class="skill-group-label gl-blue">Frameworks</div>
       <div class="skill-tags">
-        <span class="skill-tag">Distributed Systems</span>
-        <span class="skill-tag">TCP/IP</span>
-        <span class="skill-tag">Algorithms</span>
-        <span class="skill-tag">SOA</span>
-        <span class="skill-tag">Static Analysis</span>
+        <span class="skill-tag">Spring Boot</span>
+        <span class="skill-tag">Spring Security</span>
+        <span class="skill-tag">Spring Data JPA</span>
+        <span class="skill-tag">ASP.NET Core</span>
+        <span class="skill-tag">React</span>
+        <span class="skill-tag">Thymeleaf</span>
+        <span class="skill-tag">Entity Framework Core</span>
       </div>
     </div>
     <div class="skill-group">
-      <div class="skill-group-label gl-lav">Cloud &amp; Infra</div>
+      <div class="skill-group-label gl-lav">Cloud &amp; Data</div>
       <div class="skill-tags">
         <span class="skill-tag">Azure</span>
         <span class="skill-tag">AWS</span>
+        <span class="skill-tag">Docker</span>
+        <span class="skill-tag">MySQL</span>
+        <span class="skill-tag">SQLite</span>
         <span class="skill-tag">Azure AI / OpenAI</span>
-        <span class="skill-tag">Azure Virtual Desktop</span>
       </div>
     </div>
     <div class="skill-group">
-      <div class="skill-group-label gl-pink">Tools &amp; Monitoring</div>
+      <div class="skill-group-label gl-pink">Tools &amp; Practices</div>
       <div class="skill-tags">
-        <span class="skill-tag">Git / CI-CD</span>
+        <span class="skill-tag">GitHub Actions / CI-CD</span>
         <span class="skill-tag">KQL</span>
         <span class="skill-tag">Azure Monitor</span>
         <span class="skill-tag">Postman</span>
+        <span class="skill-tag">Git</span>
+        <span class="skill-tag">JGit</span>
         <span class="skill-tag">PMD</span>
-        <span class="skill-tag">GitHub API</span>
       </div>
     </div>
   </div>
@@ -487,26 +491,26 @@ footer {
     <div>
       <div class="project-header">
         <span class="project-num">[01]</span>
-        <span class="project-name">Photo Editing Application</span>
-        <span class="project-status status-active">In Progress</span>
+        <span class="project-name">Sassytos 2.0 — Image Filter Studio</span>
+        <span class="project-status status-complete">2026</span>
       </div>
-      <p class="project-desc">Image processing app implementing fundamental enhancement algorithms — grayscale, brightness, smoothing, sharpening, rotation — plus artistic filters including binarization, oil-painting effects, and cartoon-style transformations.</p>
-      <div class="project-stack"><span>Python</span><span>Tkinter</span><span>Image Processing</span></div>
+      <p class="project-desc">Reimagining of a small C# photo editor I built in undergrad (2017) — this time asking: can I recreate Studio Ghibli's painterly aesthetic using only traditional image processing, from scratch? Each filter is a hand-tuned pipeline of bilateral filtering, K-means in LAB color space, cv2.stylization, and morphological operations — ordered deliberately, because the order changes the result. Multithreading via a background FilterWorker keeps the UI responsive under load. No pre-built filter APIs.</p>
+      <div class="project-stack"><span>Python</span><span>Tkinter</span><span>OpenCV</span><span>Multithreading</span><span>K-means</span></div>
       <div class="progress-meta">
         <span class="progress-label">progress</span>
-        <span class="progress-pct-pink">60%</span>
+        <span class="progress-pct-pink">100%</span>
       </div>
-      <div class="progress-track"><div class="fill-pink" style="width:60%"></div></div>
+      <div class="progress-track"><div class="fill-pink" style="width:100%"></div></div>
       <div class="milestones">
         <span class="milestone ms-pink done">Core UI</span>
         <span class="milestone ms-pink done">Basic filters</span>
-        <span class="milestone ms-pink done">Brightness / gray</span>
-        <span class="milestone ms-pink">Artistic filters</span>
-        <span class="milestone ms-pink">Docs</span>
+        <span class="milestone ms-pink done">Artistic filters</span>
+        <span class="milestone ms-pink done">Multithreading</span>
+        <span class="milestone ms-pink done">Docs</span>
       </div>
-      <p class="project-update">Working on oil-painting and cartoon-style effect pipeline.</p>
+      <p class="project-update">Completed 2026 · CSC 481 Image Processing · DePaul University, Chicago</p>
     </div>
-    <a href="#" class="project-link pl-pink">GitHub ↗</a>
+    <a href="https://github.com/kalyaniNagarkar/Sassytos2.0" target="_blank" class="project-link pl-pink">GitHub ↗</a>
   </div>
 
   <div class="project-card pc-blue">
@@ -514,10 +518,10 @@ footer {
       <div class="project-header">
         <span class="project-num">[02]</span>
         <span class="project-name">Static Code Analysis Tool</span>
-        <span class="project-status status-complete">Complete</span>
+        <span class="project-status status-complete">2024</span>
       </div>
-      <p class="project-desc">Java-based tool that detects SOLID principle violations across GitHub repositories. Integrates PMD and GitHub APIs to automate code scanning and generate structured violation reports. Extensible rule-engine architecture.</p>
-      <div class="project-stack"><span>Java</span><span>PMD</span><span>GitHub API</span><span>OpenCSV</span></div>
+      <p class="project-desc">Java command-line tool that programmatically clones any GitHub repository via JGit, runs PMD static analysis across all Java files, and produces a structured CSV violation report with bar/pie chart visualizations. Tested against <a href="https://github.com/libgdx/libgdx" target="_blank" style="color:var(--blue)">libGDX</a> — surfaced 3,600+ violations across the codebase. Extensible rule-engine architecture.</p>
+      <div class="project-stack"><span>Java</span><span>JGit</span><span>PMD</span><span>OpenCSV</span><span>JFreeChart</span></div>
       <div class="progress-meta">
         <span class="progress-label">progress</span>
         <span class="progress-pct-blue">100%</span>
@@ -530,33 +534,61 @@ footer {
         <span class="milestone ms-blue done">Reporting</span>
         <span class="milestone ms-blue done">Testing</span>
       </div>
-      <p class="project-update">Shipped 2024. Extensible rule-engine architecture.</p>
+      <p class="project-update">Completed 2024 · Tested against libGDX (3,600+ violations surfaced)</p>
     </div>
-    <a href="#" class="project-link pl-blue">GitHub ↗</a>
+    <a href="https://github.com/kalyaniNagarkar/static-code-analyzer" target="_blank" class="project-link pl-blue">GitHub ↗</a>
   </div>
 
   <div class="project-card pc-pink">
     <div>
       <div class="project-header">
         <span class="project-num">[03]</span>
-        <span class="project-name">Windows Photo Editing App</span>
-        <span class="project-status status-complete">Complete</span>
+        <span class="project-name">Personal Timeline Application</span>
+        <span class="project-status status-complete">2025</span>
       </div>
-      <p class="project-desc">Desktop image editor with rotate, crop, filter, and save functionality. Built in C# .NET as undergraduate capstone project.</p>
-      <div class="project-stack"><span>C#</span><span>.NET Framework</span></div>
+      <p class="project-desc">Full-stack web application for creating and managing personal timeline entries. RESTful backend APIs in ASP.NET Core with Entity Framework Core for ORM-based persistence, consumed by a React/TypeScript frontend with full CRUD functionality. Relational schema design with SQLite.</p>
+      <div class="project-stack"><span>C# ASP.NET Core</span><span>React</span><span>TypeScript</span><span>Entity Framework Core</span><span>SQLite</span></div>
       <div class="progress-meta">
         <span class="progress-label">progress</span>
         <span class="progress-pct-pink">100%</span>
       </div>
       <div class="progress-track"><div class="fill-pink" style="width:100%"></div></div>
       <div class="milestones">
-        <span class="milestone ms-pink done">Core editing</span>
-        <span class="milestone ms-pink done">Filters</span>
-        <span class="milestone ms-pink done">File I/O</span>
+        <span class="milestone ms-pink done">REST API</span>
+        <span class="milestone ms-pink done">Frontend</span>
+        <span class="milestone ms-pink done">Auth</span>
+        <span class="milestone ms-pink done">DB schema</span>
+        <span class="milestone ms-pink done">CRUD</span>
       </div>
-      <p class="project-update">Completed 2018. BE capstone.</p>
+      <p class="project-update">Completed 2025</p>
     </div>
     <a href="#" class="project-link pl-pink">GitHub ↗</a>
+  </div>
+
+  <div class="project-card pc-blue">
+    <div>
+      <div class="project-header">
+        <span class="project-num">[04]</span>
+        <span class="project-name">Gearwood Puzzle Store</span>
+        <span class="project-status status-complete">2026</span>
+      </div>
+      <p class="project-desc">Full-stack e-commerce application built with Spring Boot MVC. Features product catalog with search/filtering, shopping cart, full checkout with payment processing, order history, and role-based admin product management (CUSTOMER/ADMIN roles via Spring Security). Layered architecture: Controllers → Services → Repositories → Entities.</p>
+      <div class="project-stack"><span>Java</span><span>Spring Boot</span><span>Spring Security</span><span>Spring Data JPA</span><span>Thymeleaf</span><span>MySQL</span></div>
+      <div class="progress-meta">
+        <span class="progress-label">progress</span>
+        <span class="progress-pct-blue">100%</span>
+      </div>
+      <div class="progress-track"><div class="fill-blue" style="width:100%"></div></div>
+      <div class="milestones">
+        <span class="milestone ms-blue done">Product catalog</span>
+        <span class="milestone ms-blue done">Cart &amp; checkout</span>
+        <span class="milestone ms-blue done">Spring Security</span>
+        <span class="milestone ms-blue done">Order history</span>
+        <span class="milestone ms-blue done">Admin panel</span>
+      </div>
+      <p class="project-update">Completed 2025 · SE 352/452 Enterprise Computing · DePaul University, Chicago</p>
+    </div>
+    <a href="#" class="project-link pl-blue">GitHub ↗</a>
   </div>
 
 </section>
@@ -571,15 +603,14 @@ footer {
     <div class="exp-stripe stripe-pink"></div>
     <div style="padding-left:1rem;">
       <div class="exp-top">
-        <div class="exp-role">Senior Software Engineer — Azure AI Support</div>
+        <div class="exp-role">Escalation Engineer — Microsoft Azure AI Support</div>
         <div class="exp-date">Feb 2023 – Mar 2024</div>
       </div>
       <div class="exp-company ec-pink">Zen3 / Tech Mahindra · Client: Microsoft</div>
       <ul class="exp-bullets">
-        <li class="li-pink">Investigated complex production issues across Azure AI services — telemetry, logs, request payloads, model behavior.</li>
-        <li class="li-pink">Diagnosed undocumented edge cases; collaborated with engineering to root-cause defects and reliability regressions.</li>
-        <li class="li-pink">Wrote KQL queries against live telemetry to trace latency degradation at enterprise-scale request volumes.</li>
-        <li class="li-pink">Built and configured Azure Cognitive Services and OpenAI resources for deep behavioral understanding.</li>
+        <li class="li-pink"><strong>Scope:</strong> Microsoft CSS team · full Azure AI Services portfolio (Vision, Speech, Language, Decision, Azure OpenAI) · enterprise customer escalations across all five categories.</li>
+        <li class="li-pink"><strong>Tools:</strong> KQL against Azure Monitor + Application Insights to verify usage, decode error codes, and redirect troubleshooting in real time · Postman to reproduce API call chains and isolate client vs. service defects.</li>
+        <li class="li-pink"><strong>Impact:</strong> Diagnosed undocumented fine-tuning throttle failure behind a $16K billing escalation bounced across multiple teams — log analysis surfaced the root cause, outcome was a Microsoft documentation update.</li>
       </ul>
     </div>
   </div>
@@ -593,10 +624,8 @@ footer {
       </div>
       <div class="exp-company ec-blue">Wipro Technologies · Clients: Ernst &amp; Young, Citrix Systems, GTAA</div>
       <ul class="exp-bullets">
-        <li class="li-blue">Managed and scaled Azure Virtual Desktop environments — provisioning, patch management, health monitoring, performance optimization.</li>
-        <li class="li-blue">Automated virtual desktop provisioning and app deployments using PowerShell.</li>
-        <li class="li-blue">Developed ServiceNow automation workflows, reducing incident resolution time ~30%.</li>
-        <li class="li-blue">Employee of the Quarter (3 consecutive) · Star Performer of the Year.</li>
+        <li class="li-blue"><strong>AVD infrastructure:</strong> provisioned dedicated desktop pools, installed and validated enterprise app suites, managed image updates, and audited machines post-patch — hands-on from near ground-up for GTAA (3-engineer team); operational ownership for EY regional rollout.</li>
+        <li class="li-blue"><strong>ServiceNow:</strong> built custom dashboards, automated approval removal on trivial requests, and designed productivity workflows · authored KB articles for both internal teams and external clients — how-to guides, recurring issue resolutions, runbooks.</li>
       </ul>
     </div>
   </div>
@@ -611,12 +640,12 @@ footer {
   <div class="edu-grid">
     <div class="edu-card edu-pink">
       <div class="edu-deg">MS, Computer Science</div>
-      <div class="edu-school es-pink">DePaul University · Chicago</div>
-      <div class="edu-meta">Software Engineering &amp; Development · GPA 3.52 · Jun 2026</div>
+      <div class="edu-school es-pink">DePaul University, Chicago</div>
+      <div class="edu-meta">Software Engineering &amp; Development · GPA 3.59 · Graduated Jun 2026</div>
     </div>
     <div class="edu-card edu-blue">
       <div class="edu-deg">BE, Computer Engineering</div>
-      <div class="edu-school es-blue">Pune University · India</div>
+      <div class="edu-school es-blue">Savitribai Phule Pune University · India</div>
       <div class="edu-meta">Aug 2014 – May 2018</div>
     </div>
   </div>
@@ -629,23 +658,24 @@ footer {
   <div class="section-label" style="justify-content:center;"><span class="pill pill-blue">contact</span></div>
   <div class="contact-card">
     <div class="contact-heading">Let's work together</div>
-    <div class="contact-sub">open to new grad SWE roles · Chicago, IL · remote-friendly</div>
+    <div class="contact-sub">open to SWE roles · Chicago, IL</div>
+    <div class="contact-sub" style="margin-top:0.4rem; font-size:0.8rem;">STEM OPT authorized through 2029 &nbsp;·&nbsp; open to relocation anywhere in the US &nbsp;·&nbsp; onsite &amp; hybrid preferred</div>
     <div class="contact-row">
       <span class="contact-icon">email</span>
       <a href="mailto:kalyaninagarkar95@gmail.com" class="contact-val">kalyaninagarkar95@gmail.com</a>
     </div>
     <div class="contact-row">
-      <span class="contact-icon">phone</span>
-      <a href="tel:3125042835" class="contact-val">(312) 504-2835</a>
-    </div>
-    <div class="contact-row">
       <span class="contact-icon">linkedin</span>
       <a href="https://www.linkedin.com/in/kalyani-nagarkar-softwaredeveloper/" target="_blank" class="contact-val">kalyani-nagarkar ↗</a>
+    </div>
+    <div class="contact-row">
+      <span class="contact-icon">github</span>
+      <a href="https://github.com/kalyaniNagarkar" target="_blank" class="contact-val">kalyaniNagarkar ↗</a>
     </div>
   </div>
 </section>
 
-<footer>kalyani nagarkar &nbsp;·&nbsp; chicago, il &nbsp;·&nbsp; 2026</footer>
+<footer>kalyani anand nagarkar &nbsp;·&nbsp; chicago, il &nbsp;·&nbsp; 2026</footer>
 
 <script>
   const fills = document.querySelectorAll('.fill-pink, .fill-blue');
