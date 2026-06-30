@@ -213,6 +213,7 @@ section { padding: 5.5rem 2.5rem; max-width: 960px; margin: 0 auto; }
 .project-card::before {
   content: ''; position: absolute; inset: 0;
   border-radius: 12px; opacity: 0; transition: opacity 0.25s;
+  pointer-events: none;
 }
 .pc-pink::before { background: var(--pink-glow); }
 .pc-blue::before { background: var(--blue-glow); }
